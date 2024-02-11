@@ -8,18 +8,33 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Blog</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <div class="blog">
       <div class="blog__form">
-        <input type="text" class="blog__input" placeholder="Название поста" />
-        <textarea
-          class="blog__textarea"
-          cols="30"
-          rows="10"
-          placeholder="Текст поста"
-        ></textarea>
+        <div class="blog__control">
+          <input
+            type="text"
+            class="blog__input"
+            placeholder="Название поста"
+            name="title"
+          />
+
+          <small class="error">Заполните поле</small>
+        </div>
+
+        <div class="blog__control">
+          <textarea
+            class="blog__textarea"
+            cols="30"
+            rows="10"
+            placeholder="Текст поста"
+            name="text"
+          ></textarea>
+
+          <small class="error">Заполните поле</small>
+        </div>
 
         <button class="blog__create" onclick="createPost()">Создать</button>
       </div>
@@ -27,6 +42,8 @@
       <div class="blog__posts"></div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/posts.js"></script>
+    <script src="./js/filters.js"></script>
   </body>
 </html>

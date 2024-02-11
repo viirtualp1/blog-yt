@@ -1,0 +1,10 @@
+:root {
+  --control-bg: #f3f6f6;
+  --control-border-color: #bbbbbb;
+  --control-border-radius: 12px;
+  --control-padding-vertical: 16px;
+  --control-padding-horizontal: 16px;
+  --control-font-size: 16px;
+
+  --base-font-family: "Arial", sans-serif;
+}

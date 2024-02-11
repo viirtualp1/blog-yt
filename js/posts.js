@@ -8,6 +8,8 @@ function createPost() {
   const text = POST_TEXT_INPUT.value;
 
   if (!title || !text) {
+    validationFields(["title", "text"]);
+
     return;
   }
 

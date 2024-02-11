@@ -1,0 +1,6 @@
+.error {
+  display: none;
+  color: rgb(192, 82, 82);
+  padding-top: 4px;
+  padding-left: 12px;
+}
