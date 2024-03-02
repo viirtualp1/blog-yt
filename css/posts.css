@@ -1,3 +1,5 @@
+/* Blog */
+
 .blog {
   width: 400px;
   margin: auto;
@@ -5,29 +7,33 @@
 
 .blog__control {
   margin-bottom: 12px;
+  padding: 0 var(--control-padding-horizontal);
+  border-radius: var(--control-border-radius);
+  border: 1px solid var(--control-bg);
+  background-color: var(--control-bg);
+}
+
+.blog__control:focus-within {
+  border: 1px solid var(--control-border-color);
+}
+
+.blog__control-textarea {
+  padding-top: 16px;
 }
 
 .blog__input {
   display: block;
   width: 100%;
-  height: 60px;
-  padding: 0 var(--control-padding-horizontal);
-  border-radius: var(--control-border-radius);
+  height: 50px;
+  border: 0;
   background-color: var(--control-bg);
-  border: 1px solid var(--control-bg);
   font-size: var(--control-font-size);
   outline: none;
 }
 
-.blog__textarea:focus-visible,
-.blog__input:focus-visible {
-  border: 1px solid var(--control-border-color);
-}
-
 .blog__textarea {
   width: 100%;
-  padding: var(--control-padding-vertical) var(--control-padding-horizontal);
-  border-radius: var(--control-border-radius);
+  min-height: 178px;
   background-color: var(--control-bg);
   border: 1px solid var(--control-bg);
   outline: none;
@@ -39,7 +45,6 @@
 .blog__create {
   width: 140px;
   height: 42px;
-  margin-bottom: 24px;
   border-radius: 8px;
   outline: none;
   background-color: var(--control-bg);
@@ -52,8 +57,63 @@
   background-color: #f2f2f2;
 }
 
+.blog__open-modal {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Create post modal */
+
+.blog-modal {
+  width: 440px;
+  border: 0;
+}
+
+.blog-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 36, 64, 0.4);
+  z-index: 2;
+}
+
+.blog-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+}
+
+.blog-modal__title {
+  font-weight: 600;
+}
+
+.blog-modal__close {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.blog-modal__body {
+  position: relative;
+  z-index: 3;
+  background: var(--color-white);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Post */
+
 .post {
-  width: 420px;
+  width: 100%;
   padding: 14px 18px;
   border-radius: 12px;
   box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
@@ -66,8 +126,18 @@
 .post__header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
   margin-bottom: 12px;
+}
+
+.post__header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.post__date {
+  color: #4f4f5e;
 }
 
 .post__avatar {

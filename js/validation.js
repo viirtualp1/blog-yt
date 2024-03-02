@@ -1,20 +1,18 @@
 /** 
-@param {string[]} fields - Fields attribute "name" to check
+@param {HTMLInputElement[]} fields - Fields to check
 */
 function validationFields(fields) {
   fields.forEach((field) => {
-    const fieldElement = document.querySelector(
-      `.blog__control [name=${field}]`
-    );
-
-    if (fieldElement && !fieldElement.value) {
-      const { parentElement } = fieldElement;
-
-      const fieldError = parentElement.querySelector(`.error`);
-
-      if (fieldError) {
-        fieldError.style.display = "block";
-      }
+    if (!field || field.value) {
+      return;
     }
+
+    const fieldError = field.parentElement.querySelector(`.error`);
+
+    toggleElementVisible(fieldError, "block");
+
+    field.addEventListener("input", () =>
+      toggleElementVisible(fieldError, "none")
+    );
   });
 }

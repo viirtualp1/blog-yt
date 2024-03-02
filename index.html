@@ -12,19 +12,49 @@
   </head>
   <body>
     <div class="blog">
-      <div class="blog__form">
+      <div class="blog__posts"></div>
+
+      <button
+        type="button"
+        class="blog__open-modal"
+        onclick="modal && modal.show()"
+      >
+        <img src="./assets/images/plus.svg" alt="Создать пост" />
+      </button>
+    </div>
+
+    <dialog
+      aria-labelledby="Создание поста"
+      class="blog-modal"
+      id="create-post-modal"
+    >
+      <div class="blog-modal__overlay"></div>
+
+      <div class="blog-modal__body">
+        <div class="blog-modal__header">
+          <div class="blog-modal__title">Создать пост</div>
+
+          <button
+            type="button"
+            class="blog-modal__close"
+            onclick="modal && modal.close()"
+          >
+            <img src="./assets/images/close.svg" alt="close" />
+          </button>
+        </div>
+
         <div class="blog__control">
           <input
             type="text"
             class="blog__input"
-            placeholder="Название поста"
             name="title"
+            placeholder="Название"
           />
 
           <small class="error">Заполните поле</small>
         </div>
 
-        <div class="blog__control">
+        <div class="blog__control blog__control-textarea">
           <textarea
             class="blog__textarea"
             cols="30"
@@ -36,14 +66,24 @@
           <small class="error">Заполните поле</small>
         </div>
 
-        <button class="blog__create" onclick="createPost()">Создать</button>
+        <button type="button" class="blog__create" onclick="createPost()">
+          Создать
+        </button>
       </div>
+    </dialog>
 
-      <div class="blog__posts"></div>
-    </div>
-
+    <script src="./js/dom.js"></script>
     <script src="./js/validation.js"></script>
     <script src="./js/posts.js"></script>
     <script src="./js/filters.js"></script>
+    <script src="./js/modal.js"></script>
+
+    <script>
+      const MODALS = {
+        CREATE_POST: "create-post-modal",
+      };
+
+      const modal = useModal(MODALS.CREATE_POST);
+    </script>
   </body>
 </html>
